@@ -1,11 +1,11 @@
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card.jsx";
 
 export const Home = () => {
 	const slug = "Carlossan"
-	let[lista, setLista] = UseState([])
+	let[lista, setLista] = useState([])
 
 
   const {store, dispatch} =useGlobalReducer()
@@ -34,8 +34,10 @@ export const Home = () => {
 	return (
 		<div className="text-center mt-5">
 			<h1>Hello Rigo!!</h1>
-			{/* {lista.map((item)=>())} */}
-			<Card/>
+			{lista.map((item)=>(
+				<Card informacion = {item} key = {item.id}/>
+			))}
+			
 		</div>
 	);
 }; 
