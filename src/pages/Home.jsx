@@ -29,13 +29,13 @@ export const Home = () => {
 			
 	}
   }
-  useEffect(()=>{obtenerContactos()},[])
+  useEffect(()=>{ obtenerContactos() },[])
 
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
+			<h1>Agenda de {slug}</h1>
 			{lista.map((item)=>(
-				<Card informacion = {item} key = {item.id}/>
+				<Card informacion={item} key ={item.id}/>
 			))}
 			
 		</div>
