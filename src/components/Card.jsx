@@ -9,10 +9,10 @@ const Card = (props) => {
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
-                            <h5 className="card-title">nombr: {props.informacion.name}</h5>
-                            <p className="card-text">telefono: {props.informacion.phone}</p>
-                            <p className="card-text">email: {props.informacion.email}</p>
-                            <p className="card-text">direccion: {props.informacion.address}</p>
+                            <h5 className="card-title">Nombre: {props.informacion.name}</h5>
+                            <p className="card-text">Teléfono: {props.informacion.phone}</p>
+                            <p className="card-text">Email: {props.informacion.email}</p>
+                            <p className="card-text">Direccion: {props.informacion.address}</p>
                             
                         </div>
                     </div>
