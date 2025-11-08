@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { useNavigate } from "react-router-dom";
 
 const AgregarContactos = () => {
     const {store, dispatch} =useGlobalReducer()
@@ -7,7 +8,33 @@ const AgregarContactos = () => {
         name:"", email:"", phone:"", address:""
     }    
     )
-    const formularioDelInput
+    const navigate = useNavigate()
+    const formularioDelInput = (e) => {
+        setData({...data,[e.target.name]:e.target.value})
+    }
+    const crear = (e) => {
+        e.preventDefault()
+        fetch("https://playground.4geeks.com/contact/agendas/Carlossan/contacts", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({...data, agenda_slug:"Carlossan"})
+        })
+            .then((response)=> {
+                if (!response.ok) {
+                    throw new Error ("Error al crear el contacto")
+                }
+                return response.json()
+            })
+            .then ((newContact) => {
+                dispatch({
+                    type: "add_contact",
+                    payload: newContact
+                })
+                navigate("/")
+            })
+            .catch((error) => console.log("Error creando el contacto", error));
+            
+    }
     return (
         <div>
             <form className="row g-3" onSubmit={crear}>                
@@ -20,8 +47,8 @@ const AgregarContactos = () => {
                     <input type="email" className="form-control" id="inputEmail4" placeholder="something@something.com" name="email" onChange={formularioDelInput} value={data.email}/>
                 </div>                
                 <div className="col-12">
-                    <label htmlFor="inputAddress2" className="form-label">Phone</label>
-                    <input type="number" className="form-control" id="inputPhone2" placeholder="###-#####-###" name="phone" onChange={formularioDelInput} value={data.phone}/>
+                    <label htmlFor="inputPhone2" className="form-label">Phone</label>
+                    <input type="text" className="form-control" id="inputPhone2" placeholder="###-#####-###" name="phone" onChange={formularioDelInput} value={data.phone}/>
                 </div>
                 <div className="col-12">
                     <label htmlFor="inputAddress" className="form-label">Address</label>
