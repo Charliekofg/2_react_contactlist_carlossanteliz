@@ -44,7 +44,11 @@ export default function storeReducer(store, action = {}) {
         contacts: [...store.contacts, action.payload]
       }
 
+      case 'edit_contact':
 
+      return {
+        contacts: store.contacts.map(c => c.id === action.payload.id ? action.payload : c)
+      }
 
 
 

@@ -9,10 +9,10 @@ const AgregarContactos = () => {
     }    
     )
     const navigate = useNavigate()
-    const formularioDelInput = (e) => {
+    const formChange = (e) => {
         setData({...data,[e.target.name]:e.target.value})
     }
-    const crear = (e) => {
+    const forSubmit = (e) => {
         e.preventDefault()
         fetch("https://playground.4geeks.com/contact/agendas/Carlossan/contacts", {
             method: "POST",
@@ -37,22 +37,22 @@ const AgregarContactos = () => {
     }
     return (
         <div>
-            <form className="row g-3" onSubmit={crear}>                
+            <form className="row g-3" onSubmit={forSubmit}>                
                 <div className="col-md-6">
                     <label htmlFor="inputPassword4" className="form-label">Name</label>
-                    <input type="text" className="form-control" id="inputName4" placeholder="Provide your name" name="name" onChange={formularioDelInput} value={data.name}/>
+                    <input type="text" className="form-control" id="inputName4" placeholder="Provide your name" name="name" onChange={formChange} value={data.name}/>
                 </div>
                 <div className="col-md-6">
                     <label htmlFor="inputEmail4" className="form-label">Email</label>
-                    <input type="email" className="form-control" id="inputEmail4" placeholder="something@something.com" name="email" onChange={formularioDelInput} value={data.email}/>
+                    <input type="email" className="form-control" id="inputEmail4" placeholder="something@something.com" name="email" onChange={formChange} value={data.email}/>
                 </div>                
                 <div className="col-12">
                     <label htmlFor="inputPhone2" className="form-label">Phone</label>
-                    <input type="text" className="form-control" id="inputPhone2" placeholder="###-#####-###" name="phone" onChange={formularioDelInput} value={data.phone}/>
+                    <input type="text" className="form-control" id="inputPhone2" placeholder="###-#####-###" name="phone" onChange={formChange} value={data.phone}/>
                 </div>
                 <div className="col-12">
                     <label htmlFor="inputAddress" className="form-label">Address</label>
-                    <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" name="address" onChange={formularioDelInput} value={data.address}/>
+                    <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" name="address" onChange={formChange} value={data.address}/>
                 </div>
                 <div className="col-12">
                     <button type="submit" className="btn btn-primary">Agregar usuario</button>
