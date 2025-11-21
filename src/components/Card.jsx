@@ -1,4 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+
+
+
 const Card = (props) => {
     return (
         <div>
@@ -13,6 +18,12 @@ const Card = (props) => {
                             <p className="card-text">Teléfono: {props.informacion.phone}</p>
                             <p className="card-text">Email: {props.informacion.email}</p>
                             <p className="card-text">Direccion: {props.informacion.address}</p>
+                            <div className="card-icons">
+                                <Link to={`/editcontact/${props.informacion.id}`}>
+                                    <div><i className="fa-solid fa-pen-to-square edit-icon" ></i></div>
+                                </Link>
+                                <div><i className="fa-solid fa-trash-can delete-icon"></i></div>
+                            </div>
                             
                         </div>
                     </div>
