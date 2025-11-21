@@ -3,3 +3,8 @@
     margin-left: 120px;
     gap: 70px
 }
+.delete-icon{
+    margin-top:4px;
+    cursor: pointer;
+    color: red;
+}

@@ -20,9 +20,13 @@ const Card = (props) => {
                             <p className="card-text">Direccion: {props.informacion.address}</p>
                             <div className="card-icons">
                                 <Link to={`/editcontact/${props.informacion.id}`}>
-                                    <div><i className="fa-solid fa-pen-to-square edit-icon" ></i></div>
+                                    <i className="fa-solid fa-pen-to-square edit-icon" ></i>
                                 </Link>
-                                <div><i className="fa-solid fa-trash-can delete-icon"></i></div>
+                                <i className="fa-solid fa-trash-can delete-icon" 
+                                onClick={() => props.onDelete(Number(props.informacion.id))}></i>
+                                
+
+                                
                             </div>
                             
                         </div>

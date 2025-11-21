@@ -55,7 +55,7 @@ export const EditContact = () => {
             type: "edit_contact",
             payload: updatedContact
         })
-        navigate("/Agenda")
+        navigate("/")
     })
     .catch((error) => console.error("No fue posible actualizar el contacto", error))
 }
@@ -82,7 +82,7 @@ export const EditContact = () => {
                     <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" name="address" onChange={formChange} value={data.address}/>
                 </div>
                 <div className="col-12">
-                    <button type="submit" className="btn btn-primary">Agregar usuario</button>
+                    <button type="submit" className="btn btn-primary">Editar contacto</button>
                 </div>
             </form>
         </div>

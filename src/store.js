@@ -50,6 +50,12 @@ export default function storeReducer(store, action = {}) {
         contacts: store.contacts.map(c => c.id === action.payload.id ? action.payload : c)
       }
 
+      case 'delete_contact':
+        return {
+          ...store,
+          contacts: store.contacts.filter(c => c.id !== action.payload)
+        };
+
 
 
 
