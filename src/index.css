@@ -4,7 +4,7 @@
   font-weight: bold;
   text-align: center;
   margin: 40px 0;
-  color: #000; /* color base */
+  color: #000;
   letter-spacing: 2px;
   animation: fadeIn 2s ease forwards, flashBlue 10s linear infinite;
 }
@@ -39,7 +39,7 @@
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border: 1px solid rgba(191, 167, 111, 0.6); 
   box-shadow: 0 0 4px rgba(230, 216, 173, 0.4), 
               0 0 8px rgba(191, 167, 111, 0.3);
