@@ -52,8 +52,16 @@ export const Home = () => {
 	};
 
 	return (
-		<div className="text-center mt-5">
+		<div className="text-center mt-5 main-header">
 			<h1>Agenda de {slug}</h1>
+			<div className="sub-header">
+				<h4 className="custom-heartbeat text-secondary">
+					Agrega o edita tus contactos de manera dinámica.
+				</h4>
+				<p className="text-dark custom-flip">
+					Made with <i className="fa fa-heart text-danger" /> by Carlos Santeliz
+				</p>
+			</div>
 			<div className="container">
 				<div className="row g-4">
 					{lista.map((item) => (

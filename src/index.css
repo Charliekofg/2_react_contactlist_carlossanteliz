@@ -1,15 +1,79 @@
+.card {
+  position: relative;
+  border: 1px solid rgba(173, 216, 230, 0.6); /* azul claro tenue */
+  box-shadow: 0 0 4px rgba(173, 216, 230, 0.4), 
+              0 0 8px rgba(135, 206, 250, 0.3);
+  
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border: 1px solid rgba(191, 167, 111, 0.6); 
+  box-shadow: 0 0 4px rgba(230, 216, 173, 0.4), 
+              0 0 8px rgba(191, 167, 111, 0.3);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(191,167,111,0.3), rgba(230,216,173,0.2), rgba(191,167,111,0.3));
+  background-size: 200% 200%;
+  animation: subtleGoldGlow 6s linear infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+@keyframes electricGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+
 .card-icons{
     display:flex;
-    margin-left: 120px;
-    gap: 70px
+    margin-left: 90px;
+    gap: 40px
 }
 .delete-icon{
     margin-top:4px;
-    cursor: pointer;
     color: red;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+.edit-icon{
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  display: inline-block
+}
+.edit-icon:hover,
+.delete-icon:hover {
+  transform: scale(1.75);
+  animation: shake 0.4s ease-in-out;
 }
 
-/* Animación personalizada */
+@keyframes shake {
+  0% { transform: scale(1.75) translateX(0); }
+  20% { transform: scale(1.75) translateX(-3px); }
+  40% { transform: scale(1.75) translateX(3px); }
+  60% { transform: scale(1.75) translateX(-3px); }
+  80% { transform: scale(1.75) translateX(3px); }
+  100% { transform: scale(1.75) translateX(0); }
+  
+}
+
+
+
 @keyframes subtleHeartBeat {
   0%   { transform: scale(1); }
   10%  { transform: scale(1.02); } /* leve aumento */
@@ -25,22 +89,32 @@
   animation-delay: 10s; /* espera 10s antes de cada ciclo */
 }
 
-@keyframes subtleFlip {
+@keyframes flipGlow {
   0%, 90% {
-    transform: rotateY(0deg); /* stays still */
+    transform: rotateY(0deg);
+    text-shadow: none; /* sin brillo */
   }
   95% {
-    transform: rotateY(180deg); /* flip */
+    transform: rotateY(180deg);
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; /* brillo rojo */
   }
   100% {
-    transform: rotateY(0deg); /* return to normal */
+    transform: rotateY(0deg);
+    text-shadow: none; /* vuelve a normal */
   }
 }
 
 .custom-flip {
-    
-  animation: subtleFlip 10s ease-in-out infinite;
+  
+  animation: flipGlow 10s ease-in-out infinite;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 
 
 
