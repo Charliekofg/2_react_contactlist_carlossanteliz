@@ -52,8 +52,8 @@ export const Home = () => {
 	};
 
 	return (
-		<div className="text-center mt-5 main-header">
-			<h1>Agenda de {slug}</h1>
+		<div className="text-center mt-5">
+			<h1 className="main-header">Agenda de {slug}</h1>
 			<div className="sub-header">
 				<h4 className="custom-heartbeat text-secondary">
 					Agrega o edita tus contactos de manera dinámica.

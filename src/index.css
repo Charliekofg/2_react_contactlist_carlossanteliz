@@ -1,6 +1,38 @@
+.main-header {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0;
+  color: #000; /* color base */
+  letter-spacing: 2px;
+  animation: fadeIn 2s ease forwards, flashBlue 10s linear infinite;
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes flashBlue {
+  0%, 97%, 100% {
+    text-shadow: none;
+    color: #000;
+  }
+  50% {
+    text-shadow: 0 0 6px rgba(0, 191, 255, 0.3),
+                 0 0 12px rgba(0, 191, 255, 0.2);
+    color: #003366; 
+  }
+}
+
+
+
 .card {
   position: relative;
-  border: 1px solid rgba(173, 216, 230, 0.6); /* azul claro tenue */
+  border: 1px solid rgba(173, 216, 230, 0.6);
   box-shadow: 0 0 4px rgba(173, 216, 230, 0.4), 
               0 0 8px rgba(135, 206, 250, 0.3);
   
@@ -76,31 +108,31 @@
 
 @keyframes subtleHeartBeat {
   0%   { transform: scale(1); }
-  10%  { transform: scale(1.02); } /* leve aumento */
+  10%  { transform: scale(1.02); }
   20%  { transform: scale(1); }
   30%  { transform: scale(1.02); }
   40%  { transform: scale(1); }
-  100% { transform: scale(1); } /* vuelve al estado normal */
+  100% { transform: scale(1); }
 }
 
 .custom-heartbeat {
   display: inline-block;
   animation: subtleHeartBeat 7s ease-in-out infinite;
-  animation-delay: 10s; /* espera 10s antes de cada ciclo */
+  animation-delay: 10s; 
 }
 
 @keyframes flipGlow {
   0%, 90% {
     transform: rotateY(0deg);
-    text-shadow: none; /* sin brillo */
+    text-shadow: none;
   }
   95% {
     transform: rotateY(180deg);
-    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; /* brillo rojo */
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
   }
   100% {
     transform: rotateY(0deg);
-    text-shadow: none; /* vuelve a normal */
+    text-shadow: none;
   }
 }
 
